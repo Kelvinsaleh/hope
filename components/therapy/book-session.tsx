@@ -1,8 +1,10 @@
-import { createChatSession } from "@/lib/api/chat";
+"use client";
+
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
+import { createChatSession } from "@/lib/api/chat";
 
 const BookSession = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,6 +14,7 @@ const BookSession = () => {
   const handleBooking = async () => {
     try {
       setIsLoading(true);
+      // Simulate booking delay
       await new Promise((resolve) => setTimeout(resolve, 1000));
       toast({
         title: "Session Booked!",
@@ -32,5 +35,15 @@ const BookSession = () => {
     }
   };
 
-  // ...rest of file remains unchanged
+  return (
+    <div className="space-y-4">
+      <h3 className="font-semibold">Book a Session</h3>
+      <p className="text-sm text-muted-foreground">30-minute therapy session</p>
+      <Button onClick={handleBooking} disabled={isLoading} className="w-full">
+        {isLoading ? "Processing..." : "Book Now"}
+      </Button>
+    </div>
+  );
 };
+
+export default BookSession;
