@@ -20,7 +20,7 @@ export default function Footer() {
       </Link>
       <Link href="/rescue-pairs" className="flex flex-col items-center group">
         <Users className="w-7 h-7 text-primary group-hover:scale-110 transition" />
-        <span className="text-xs mt-1">Rescue Pairs</span>
+        <span className="text-xs mt-1">Rescue Pairs s</span>
       </Link>
     </footer>
   );
